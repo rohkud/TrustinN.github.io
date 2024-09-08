@@ -9,8 +9,18 @@
         </h1>
         <p>
             Using an exhaustive search given a window [-z, z], the algorithm loops over the x and y axis to determine a shift (dx, dy) such that dx, dy are in [-z, z]. The ideal shift is chosen by a given metric, two of which I used for the project are sum of squared differences and the zero-normalized correlation coefficient. The ZNCC metric is useful for varying brightnesses in the channels, as the images are first normalized before maximizing their dot product. The exhaustive search is effective for small images such as the jpg files.
+        </p>
 
-            For larger images, larger windows will slow down the result.
+        <p>
+            For larger images, larger windows will slow down the result. Using an image pyramid, we can recursively downsample the image (by a factor of 2) to a given depth, at each step, aligning the image and returning the shift. Propagation upwards will account for the total displacement of the image, which we can use to shift the image. This makes the process much faster, as at a depth (d), determining the ideal displacement is fastest, and accounts for (# pixel shifts) * 2^d of the displacement. Although faster, this algorithm struggles with the borders that are present in some images. This affects the metric used, making the result inaccurate, especially on train.tif, lady.tif, and emir.tif.
+        </p>
+
+        <p>
+            One improvement is to use the sobel filter to detect edges in the image. We can preprocess the image with the filter, feed this into our alignment algorithm and obtain a result more resistant to border artifacts.
+        </p>
+
+        <p>
+            To achieve stronger results, cropping the image by 15% on all sides can remove the issue.
         </p>
     </body>
 
