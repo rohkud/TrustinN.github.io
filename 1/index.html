@@ -13,23 +13,42 @@
         </div>
         <div class="center_images">
             <p>
-                <img src="../media/exhaustive_ex/cathedral.jpg" alt="cathedral" width="300" height="300"></img>
-                <img src="../media/exhaustive_ex/monastery.jpg" alt="cathedral" width="300" height="300"></img>
-                <img src="../media/exhaustive_ex/tobolsk.jpg" alt="cathedral" width="300" height="300"></img>
+                <img src="./media/exhaustive_ex/tobolsk.jpg" alt="tobolsk" width="300" height="300"></img>
+                <img src="./media/exhaustive_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
+                <img src="./media/exhaustive_ex/cathedral.jpg" alt="cathedral" width="300" height="300"></img>
             </p>
         </div>
         <div class="centered">
-            <embed src="../media/exhaustive_ex/data.txt" alt="runtime data" width="100%">
+            <embed src="./media/exhaustive_ex/data.txt" alt="runtime data" width="100%">
         </div>
 
         <div class="centered">
             <h2>Runtime Data</h2>
-            The output format is: image_name (ag_disp, ar_disp, runtime).
+            The output format is: <code>image_name (ag_disp, ar_disp, runtime)</code>.
             <ul>
-                <li>image_name: Name of the image</li>
-                <li>ag_disp: Displacement of the green channel to align with the blue channel. This is a tuple of the form (dx, dy) such that <span class="nobr">np.roll(g, ag_disp, (1, 0))</span> is the realigned green channel.</li>
-                <li>ar_disp: Displacement of the red channel to align with the blue channel. This is a tuple of the form (dx, dy) such that <span class="nobr">np.roll(r, ar_disp, (1, 0))</span> is the realigned red channel.</li>
-                <li>runtime: Runtime in seconds.</li>
+                <li style="clear:both">
+                    <div style="float:left; min-width:80px"><code>image_name</code></div>
+                    <span style="float:left">&nbsp:&nbsp</span>
+                    <div style="float:left; width:80%">Name of the image</div>
+                </li>
+
+                <li style="clear:both">
+                    <div style="float:left; min-width:80px"><code>ag_disp</code></div>
+                    <span style="float:left">&nbsp:&nbsp</span>
+                    <div style="float:left; width:80%">Displacement of the green channel to align with the blue channel. This is a tuple of the form (dx, dy) such that <code class="nobr">np.roll(g, ag_disp, (1, 0))</code> is the realigned green channel.</div>
+                </li>
+
+                <li style="clear:both">
+                    <div style="float:left; min-width:80px"><code>ar_disp</code></div>
+                    <span style="float:left">&nbsp:&nbsp</span>
+                    <div style="float:left; width:80%">Displacement of the red channel to align with the blue channel. This is a tuple of the form (dx, dy) such that <code class="nobr">np.roll(r, ar_disp, (1, 0))</code> is the realigned red channel.</div>
+                </li>
+
+                <li style="clear:both">
+                    <div style="float:left; min-width:80px"><code>runtime</code></div>
+                    <span style="float:left">&nbsp:&nbsp</span>
+                    <div style="float:left; width:80%">Runtime in seconds.</div>
+                </li>
             </ul>
         </div>
 
@@ -41,49 +60,59 @@
         </div>
         <div class="center_images">
             <p>
-                <img src="../media/img_pyramid_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
-                <img src="../media/img_pyramid_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
-                <img src="../media/img_pyramid_ex/train.jpg" alt="train" width="300" height="300"></img>
-                <img src="../media/img_pyramid_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/img_pyramid_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/img_pyramid_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
+                <img src="./media/img_pyramid_ex/train.jpg" alt="train" width="300" height="300"></img>
+                <img src="./media/img_pyramid_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
             </p>
             <div class="centered">
-                <embed src="../media/img_pyramid_ex/data.txt" alt="runtime data" width="100%" height="100%">
+                <embed src="./media/img_pyramid_ex/data.txt" alt="runtime data" width="100%" height="100%">
             </div>
         </div>
 
         <div class="centered">
             <h2>Edge Detection for Alignment</h2>
             <p>
-                One improvement is to use the sobel filter to detect edges in the image. We can preprocess the image with the filter, feed this into our alignment algorithm and obtain a result more resistant to border artifacts.
+                One improvement is to use the sobel filter to detect edges in the image. We can preprocess the image with the filter, feed this into our alignment algorithm and obtain a result more resistant to border colors.
             </p>
         </div>
         <div class="center_images">
             <p>
-                <img src="../media/sobel_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
-                <img src="../media/sobel_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
-                <img src="../media/sobel_ex/train.jpg" alt="train" width="300" height="300"></img>
-                <img src="../media/sobel_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/sobel_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/sobel_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
+                <img src="./media/sobel_ex/train.jpg" alt="train" width="300" height="300"></img>
+                <img src="./media/sobel_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
             </p>
             <div class="centered">
-                <embed src="../media/sobel_ex/data.txt" alt="runtime data" width="100%" height="100%">
+                <embed src="./media/sobel_ex/data.txt" alt="runtime data" width="100%" height="100%">
             </div>
         </div>
 
         <div class="centered">
-            <h2> Naive Cropping </h2>
+            <h2> Naive Cropping and Results </h2>
             <p>
-                To achieve stronger results, cropping the image by 15% on all sides can remove the issue.
+                To achieve stronger results, cropping the image by 15% on all sides can remove the issue. This is the final improvement of the program and here are all results listed:
             </p>
         </div>
         <div class="center_images">
             <p>
-                <img src="../media/border_crop_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
-                <img src="../media/border_crop_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
-                <img src="../media/border_crop_ex/train.jpg" alt="train" width="300" height="300"></img>
-                <img src="../media/border_crop_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/emir.jpg" alt="emir" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/monastery.jpg" alt="monastery" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/church.jpg" alt="church" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/three_generations.jpg" alt="three_generations" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/melons.jpg" alt="melons" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/onion_church.jpg" alt="onion_church" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/train.jpg" alt="train" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/tobolsk.jpg" alt="tobolsk" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/icon.jpg" alt="icon" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/cathedral.jpg" alt="cathedral" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/self_portrait.jpg" alt="self_portrait" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/harvesters.jpg" alt="harvesters" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/sculpture.jpg" alt="sculpture" width="300" height="300"></img>
+                <img src="./media/border_crop_ex/lady.jpg" alt="lady" width="300" height="300"></img>
             </p>
             <div class="centered">
-                <embed src="../media/border_crop_ex/data.txt" alt="runtime data" width="100%" height="100%">
+                <embed src="./media/border_crop_ex/data.txt" alt="runtime data" width="100%" height="100%">
             </div>
         </div>
     </body>
